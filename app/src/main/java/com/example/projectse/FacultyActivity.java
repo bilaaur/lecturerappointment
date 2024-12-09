@@ -1,6 +1,7 @@
-package com.example.projectse;
+package com.example.project;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +14,6 @@ import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ public class FacultyActivity extends AppCompatActivity {
     private Map<String, List<String>> facultyMajorsMap;
     private List<String> faculties;
     private Button submitButton;
-    private String selectedMajor=null; // Track the selected major
+    private String selectedMajor = null; // Track the selected major
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +59,7 @@ public class FacultyActivity extends AppCompatActivity {
         });
 
         logoutTextView.setOnClickListener(v -> {
-            // Log out logic (if any)
+            // Log out logic (under develop)
         });
     }
 
@@ -108,13 +108,16 @@ public class FacultyActivity extends AppCompatActivity {
 
                 @Override
                 public void onNothingSelected(AdapterView<?> parent) {
-                    selectedMajor = null; // Clear selection if nothing selected
+                    selectedMajor = null;
                 }
             });
 
             // Set up submit button logic
             submitButton.setOnClickListener(v -> {
                 if (selectedMajor != null) {
+                    // Save the selected major to SharedPreferences
+                    saveFacultyToSharedPreferences(selectedMajor);
+
                     if ("Information Technology".equals(selectedMajor)) {
                         Intent intent = new Intent(FacultyActivity.this, LecturerActivity.class);
                         startActivity(intent);
@@ -157,5 +160,13 @@ public class FacultyActivity extends AppCompatActivity {
             default:
                 return R.drawable.pu;
         }
+    }
+
+    // SharedPreferences
+    private void saveFacultyToSharedPreferences(String selectedFaculty) {
+        SharedPreferences sharedPreferences = getSharedPreferences("FacultySession", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("selectedFaculty", selectedFaculty);
+        editor.apply();
     }
 }

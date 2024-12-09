@@ -1,4 +1,4 @@
-package com.example.projectse;
+package com.example.project;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -10,12 +10,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
-
 import java.util.Calendar;
 import java.util.List;
 
@@ -41,24 +38,20 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
         holder.profileName.setText(profile.getName());
         holder.profileDescription.setText(profile.getDescription());
 
-        // Load profile image using Glide
         Glide.with(context)
-                .load(profile.getImageUrl()) // Image URL from database
-                .placeholder(R.drawable.logo) // Placeholder image
+                .load(profile.getImageUrl())
+                .placeholder(R.drawable.logo)
                 .into(holder.profileImage);
 
         // Handle Date button click
         holder.btnDate.setOnClickListener(v -> {
-            // Initialize the calendar
             Calendar calendar = Calendar.getInstance();
             int year = calendar.get(Calendar.YEAR);
             int month = calendar.get(Calendar.MONTH);
             int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
 
-            // Show DatePickerDialog
             DatePickerDialog datePickerDialog = new DatePickerDialog(context,
                     (view, year1, month1, dayOfMonth1) -> {
-                        // Set the selected date to the button text
                         String selectedDate = dayOfMonth1 + "/" + (month1 + 1) + "/" + year1;
                         holder.btnDate.setText(selectedDate);
                     }, year, month, dayOfMonth);
@@ -82,7 +75,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
         });
 
         holder.btnBook.setOnClickListener(v -> {
-            Toast.makeText(context, "Date already sent, waiting for confirmation!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Date already sent, waiting for confirmation!", Toast.LENGTH_SHORT).show(); //Under process
         });
     }
 

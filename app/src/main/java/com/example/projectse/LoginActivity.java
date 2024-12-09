@@ -1,4 +1,4 @@
-package com.example.projectse;
+package com.example.project;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,12 +13,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
-    EditText editTextEmail, editTextPassword;
+    private EditText editTextEmail, editTextPassword;
     private FirebaseAuth mAuth;
 
     @Override
@@ -33,20 +34,22 @@ public class LoginActivity extends AppCompatActivity {
             return insets;
         });
 
+        // DatabaseReference databaseReference = FirebaseDatabase.getInstance("https://projectsewmp-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("users");
         mAuth = FirebaseAuth.getInstance();
-
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         Button buttonLogin = findViewById(R.id.buttonLogin);
-        TextView forgotpassword = findViewById(R.id.forgotpassword);
-        TextView donthaveacc = findViewById(R.id.donthaveacc);
+        TextView forgotPassword = findViewById(R.id.forgotpassword);
+        TextView dontHaveAccount = findViewById(R.id.donthaveacc);
 
-        forgotpassword.setOnClickListener(v -> {
+        // Navigate to Forgot Password screen
+        forgotPassword.setOnClickListener(v -> {
             Intent openForgotPassword = new Intent(getApplicationContext(), ForgotPasswordActivity.class);
             startActivity(openForgotPassword);
         });
 
-        donthaveacc.setOnClickListener(v -> {
+        // Navigate to Registration screen
+        dontHaveAccount.setOnClickListener(v -> {
             Intent openRegister = new Intent(getApplicationContext(), RegisterActivity.class);
             startActivity(openRegister);
         });
@@ -70,29 +73,19 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        // Check if Firebase Auth instance is working
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null) {
-            Log.d("Firebase", "Already logged in: " + currentUser.getEmail());
-        } else {
-            Log.d("Firebase", "No user logged in.");
-        }
-
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
-                        Intent openFaculty = new Intent(getApplicationContext(), FacultyActivity.class);
-                        startActivity(openFaculty);
-
                         FirebaseUser user = mAuth.getCurrentUser();
                         if (user != null) {
-                            Intent openHome = new Intent(LoginActivity.this, LoginActivity.class);
-                            startActivity(openHome);
-                            finish(); // Close this activity
+                            Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
+                            Intent openFaculty = new Intent(LoginActivity.this, FacultyActivity.class);
+                            startActivity(openFaculty);
+                            finish();
                         }
                     } else {
                         Log.e("LoginError", "Login failed: " + task.getException());
-                        Toast.makeText(LoginActivity.this, "Incorrect password/email! Try again.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Incorrect email or password! Try again.", Toast.LENGTH_SHORT).show();
                     }
                 });
     }

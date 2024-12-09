@@ -1,4 +1,4 @@
-package com.example.projectse;
+package com.example.project;
 
 public class User {
     private String userId;

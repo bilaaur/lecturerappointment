@@ -1,4 +1,4 @@
-package com.example.projectse;
+package com.example.project;
 public class Profile {
     private String id;
     private String name;

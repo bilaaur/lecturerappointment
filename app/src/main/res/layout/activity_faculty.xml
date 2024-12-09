@@ -1,0 +1,64 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f5efff"
+    android:padding="16dp">
+
+    <!-- Search bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="8dp">
+
+        <!-- Search View -->
+        <SearchView
+            android:id="@+id/searchFaculty"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:queryHint="Search Faculty"
+            android:contentDescription="Search for faculties" />
+
+        <TextView
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="LOG OUT"
+            android:textColor="#a1a9fe"
+            android:textSize="16sp"
+            android:contentDescription="Log out of the application" />
+    </LinearLayout>
+
+    <!-- Scrollable faculty container -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:contentDescription="Scrollable list of faculties">
+
+        <LinearLayout
+            android:id="@+id/facultyContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:contentDescription="Faculty items container" />
+    </ScrollView>
+
+    <!-- Submit button -->
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="SELECT LECTURER"
+        android:backgroundTint="#d4bee4"
+        android:layout_gravity="center"
+        android:textSize="16sp"
+        android:contentDescription="Proceed to lecturer selection" />
+</LinearLayout>

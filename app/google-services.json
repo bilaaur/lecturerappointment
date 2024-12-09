@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "939356736170",
+    "firebase_url": "https://projectse-e9200-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "projectse-e9200",
+    "storage_bucket": "projectse-e9200.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939356736170:android:c4af25d1a0e454b61a1ed3",
+        "android_client_info": {
+          "package_name": "com.example.projectse"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6cki7D8x328vlczAkvVJ0yp39V5twi9g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

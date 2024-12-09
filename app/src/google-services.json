@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "842046502867",
+    "project_id": "projectsewmp-3f620",
+    "storage_bucket": "projectsewmp-3f620.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842046502867:android:554300e4b056862a772126",
+        "android_client_info": {
+          "package_name": "com.example.projectse"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBX9KzVRCcP6sIwpy5PGWYJHJtjxQR6VFs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

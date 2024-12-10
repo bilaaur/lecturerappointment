@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
+        //initiate firebase authentication
         mAuth = FirebaseAuth.getInstance();
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
@@ -41,29 +41,34 @@ public class LoginActivity extends AppCompatActivity {
         TextView forgotPassword = findViewById(R.id.forgotpassword);
         TextView dontHaveAccount = findViewById(R.id.donthaveacc);
 
+        //set up listener for "Forgot Password" text view
         forgotPassword.setOnClickListener(v -> {
             Intent openForgotPassword = new Intent(getApplicationContext(), ForgotPasswordActivity.class);
             startActivity(openForgotPassword);
         });
-
+        
+        //set up listener for "Dont Have Account" text view
         dontHaveAccount.setOnClickListener(v -> {
             Intent openRegister = new Intent(getApplicationContext(), RegisterActivity.class);
             startActivity(openRegister);
         });
 
+        //set up listener for "Login"
         buttonLogin.setOnClickListener(view -> loginUser());
     }
 
     private void loginUser() {
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
-
+        
+        //validate if the email is empty
         if (email.isEmpty()) {
             editTextEmail.setError("Email is required!");
             editTextEmail.requestFocus();
             return;
         }
 
+        //validate if the password is empty
         if (password.isEmpty()) {
             editTextPassword.setError("Password is required!");
             editTextPassword.requestFocus();

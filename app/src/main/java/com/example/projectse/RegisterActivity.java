@@ -59,12 +59,13 @@ public class FacultyActivity extends AppCompatActivity {
         });
 
         logoutTextView.setOnClickListener(v -> {
+            //SharedPreferences 
             SharedPreferences sharedPreferences = getSharedPreferences("FacultySession", MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.clear();
             editor.apply();
 
-            // Navigate back to LoginActivity
+            // Navigate to LoginActivity
             Intent intent = new Intent(FacultyActivity.this, LoginActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
@@ -120,13 +121,10 @@ public class FacultyActivity extends AppCompatActivity {
                     selectedMajor = null;
                 }
             });
-
-            // Set up submit button logic
+            
             submitButton.setOnClickListener(v -> {
                 if (selectedMajor != null) {
-                    // Save the selected major to SharedPreferences
                     saveFacultyToSharedPreferences(selectedMajor);
-
                     if ("Information Technology".equals(selectedMajor)) {
                         Intent intent = new Intent(FacultyActivity.this, LecturerActivity.class);
                         startActivity(intent);

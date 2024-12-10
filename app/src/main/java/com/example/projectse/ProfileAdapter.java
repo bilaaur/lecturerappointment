@@ -40,7 +40,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
 
         Glide.with(context)
                 .load(profile.getImageUrl())
-                .placeholder(R.drawable.logo)
+                .placeholder(R.drawable.user)
                 .into(holder.profileImage);
 
         // Handle Date button click

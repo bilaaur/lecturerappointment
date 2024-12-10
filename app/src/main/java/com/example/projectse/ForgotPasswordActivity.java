@@ -5,7 +5,6 @@ import android.os.Bundle;
 import androidx.activity.EdgeToEdge;
 import androidx.core.view.WindowInsetsCompat;
 
-
 import android.content.Intent;
 import android.widget.Button;
 import android.widget.EditText;
@@ -63,7 +62,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             String newPassword = editTextNewPassword.getText().toString().trim();
             String confirmNewPassword = editTextConfirmNewPassword.getText().toString().trim();
 
-            // Basic validation
+            //  validation
             if (email.isEmpty() || studentId.isEmpty() || phoneNumber.isEmpty() || newPassword.isEmpty() || confirmNewPassword.isEmpty()) {
                 Toast.makeText(ForgotPasswordActivity.this, "All fields must be filled!", Toast.LENGTH_SHORT).show();
                 return;

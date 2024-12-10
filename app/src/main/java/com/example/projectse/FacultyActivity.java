@@ -162,7 +162,6 @@ public class FacultyActivity extends AppCompatActivity {
         }
     }
 
-    // SharedPreferences
     private void saveFacultyToSharedPreferences(String selectedFaculty) {
         SharedPreferences sharedPreferences = getSharedPreferences("FacultySession", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();

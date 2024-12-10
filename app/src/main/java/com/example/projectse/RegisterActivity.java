@@ -1,4 +1,4 @@
-package com.example.project;
+package com.example.projectse;
 
 import android.content.Intent;
 import android.content.SharedPreferences;

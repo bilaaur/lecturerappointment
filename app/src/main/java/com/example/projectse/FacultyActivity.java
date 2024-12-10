@@ -102,7 +102,7 @@ public class FacultyActivity extends AppCompatActivity {
             majorSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    selectedMajor = majors.get(position); // Store the selected major
+                    selectedMajor = majors.get(position);
                     Toast.makeText(FacultyActivity.this, "Selected: " + selectedMajor, Toast.LENGTH_SHORT).show();
                 }
 

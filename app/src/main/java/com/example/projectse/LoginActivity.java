@@ -34,7 +34,6 @@ public class LoginActivity extends AppCompatActivity {
             return insets;
         });
 
-        // DatabaseReference databaseReference = FirebaseDatabase.getInstance("https://projectsewmp-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("users");
         mAuth = FirebaseAuth.getInstance();
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
@@ -42,13 +41,11 @@ public class LoginActivity extends AppCompatActivity {
         TextView forgotPassword = findViewById(R.id.forgotpassword);
         TextView dontHaveAccount = findViewById(R.id.donthaveacc);
 
-        // Navigate to Forgot Password screen
         forgotPassword.setOnClickListener(v -> {
             Intent openForgotPassword = new Intent(getApplicationContext(), ForgotPasswordActivity.class);
             startActivity(openForgotPassword);
         });
 
-        // Navigate to Registration screen
         dontHaveAccount.setOnClickListener(v -> {
             Intent openRegister = new Intent(getApplicationContext(), RegisterActivity.class);
             startActivity(openRegister);

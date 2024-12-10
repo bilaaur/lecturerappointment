@@ -59,7 +59,7 @@ public class FacultyActivity extends AppCompatActivity {
         });
 
         logoutTextView.setOnClickListener(v -> {
-            // Log out logic (under develop)
+
         });
     }
 

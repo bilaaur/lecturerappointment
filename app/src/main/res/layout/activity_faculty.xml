@@ -34,7 +34,6 @@
             android:contentDescription="Log out of the application" />
     </LinearLayout>
 
-    <!-- Scrollable faculty container -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"

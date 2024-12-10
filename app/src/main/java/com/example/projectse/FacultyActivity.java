@@ -82,11 +82,9 @@ public class FacultyActivity extends AppCompatActivity {
         for (String faculty : faculties) {
             View facultyView = LayoutInflater.from(this).inflate(R.layout.faculty_item, facultyContainer, false);
 
-            // Set faculty name
             TextView facultyName = facultyView.findViewById(R.id.faculty_name);
             facultyName.setText(faculty);
 
-            // Set faculty logo
             ImageView facultyLogo = facultyView.findViewById(R.id.faculty_logo);
             int logoResource = getLogoResource(faculty);
             facultyLogo.setImageResource(logoResource);

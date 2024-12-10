@@ -50,7 +50,6 @@
             android:contentDescription="Faculty items container" />
     </ScrollView>
 
-    <!-- Submit button -->
     <Button
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"

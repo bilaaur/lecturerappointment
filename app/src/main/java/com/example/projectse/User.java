@@ -5,7 +5,6 @@ public class User {
     private String name;
     private String email;
     private String password;
-    private String confirmpassword;
     private String studentId;
     private String phoneNumber;
 
@@ -13,12 +12,11 @@ public class User {
     public User() {}
 
     // Full constructor
-    public User(String userId, String name, String email, String password, String confirmpassword, String studentId, String phoneNumber) {
+    public User(String userId, String name, String email, String password, String studentId, String phoneNumber) {
         this.userId = userId;
         this.name = name;
         this.email = email;
         this.password = password;
-        this.confirmpassword = confirmpassword;
         this.studentId = studentId;
         this.phoneNumber = phoneNumber;
     }

@@ -112,7 +112,6 @@ public class FacultyActivity extends AppCompatActivity {
                 }
             });
 
-            // Set up submit button logic
             submitButton.setOnClickListener(v -> {
                 if (selectedMajor != null) {
                     // Save the selected major to SharedPreferences
